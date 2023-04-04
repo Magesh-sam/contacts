@@ -1,8 +1,13 @@
-
-import React from 'react'
+import React from "react";
+import './styles/app.css'
+import { NavBar } from "./components/NavBar";
+import { ContactList } from "./components/ContactList";
 
 export const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <main>
+      <NavBar />
+      <ContactList/>
+    </main>
+  );
+};
