@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { MouseEvent, useState, FC } from "react";
 import "../styles/navbar.css";
 import {
   AppBar,
@@ -16,25 +16,27 @@ import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
-import {addToContact } from "../redux/contactSlice";
+import { addToContact } from "../redux/contactSlice";
 
-export const NavBar = () => {
-  const contacts = useSelector((state: RootState) => state.contacts);
+import { v4 as randomID } from "uuid";
+
+interface Inavbar {
+  query: string;
+  setquery: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export const NavBar: FC<Inavbar> = ({ query, setquery }) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const [open, setOpen] = useState(false);
   const [name, setname] = useState("");
   const [phoneNo, setphoneNo] = useState<number>(0);
 
-  const [query, setquery] = useState('')
-
-  const handleSubmit = () => {
-    dispatch(addToContact({ name: name, number: phoneNo }));
+  const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    dispatch(addToContact({ name: name, number: phoneNo, id: randomID() }));
+    setOpen(false);
   };
-
-
-
-  console.log(contacts);
 
   return (
     <>
@@ -45,7 +47,8 @@ export const NavBar = () => {
             type="search"
             variant="outlined"
             placeholder="search contact"
-            onChange={(e)=>setquery(e.target.value)}
+            value={query}
+            onChange={(e) => setquery(e.target.value)}
           />
           <IconButton
             onClick={() => setOpen(true)}
@@ -90,7 +93,7 @@ export const NavBar = () => {
               type="submit"
               variant="contained"
               color="success"
-              onClick={handleSubmit}
+              onClick={(e) => handleSubmit(e)}
             >
               Create
             </Button>
