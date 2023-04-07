@@ -9,29 +9,56 @@ const mainfestForPlugin: Partial<VitePWAOptions> = {
     name:'Contacts',
     short_name:'Contacts',
     description:'Manage your Contacts Easily!',
-    icons:[
+    prefer_related_applications:true,
+    icons: [
       {
-        src:"/public/icons/icons8-contacts-192.png",
-        sizes:'192x192',
-        type:'image/png',
+        "src": "assets/icons/icon-72x72.png",
+        "sizes": "72x72",
+        "type": "image/png",
+        "purpose": "maskable any"
       },
       {
-        src:'/public/icons/icons8-contacts-512.png',
-        sizes:'512x512',
-        type:'image/png',
+        "src": "assets/icons/icon-96x96.png",
+        "sizes": "96x96",
+        "type": "image/png",
+        "purpose": "maskable any"
       },
       {
-        src:'/public/icons/icons8-contacts-180.png',
-        sizes:'180x180',
-        type:'image/png',
-        purpose:'apple touch icon',
+        "src": "assets/icons/icon-128x128.png",
+        "sizes": "128x128",
+        "type": "image/png",
+        "purpose": "maskable any"
       },
       {
-        src:'/public/icons/icons8-contacts-256.png',
-        sizes:'256x256',
-        type:'image/png',
-        purpose:'any maskable'
+        "src": "assets/icons/icon-144x144.png",
+        "sizes": "144x144",
+        "type": "image/png",
+        "purpose": "maskable any"
       },
+      {
+        "src": "assets/icons/icon-152x152.png",
+        "sizes": "152x152",
+        "type": "image/png",
+        "purpose": "maskable any"
+      },
+      {
+        "src": "assets/icons/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "maskable any"
+      },
+      {
+        "src": "assets/icons/icon-384x384.png",
+        "sizes": "384x384",
+        "type": "image/png",
+        "purpose": "maskable any"
+      },
+      {
+        "src": "assets/icons/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable any"
+      }
     ],
     theme_color:'#0f0f0f',
     background_color:'#f0f0f0',
