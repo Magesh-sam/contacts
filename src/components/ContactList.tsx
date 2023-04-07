@@ -83,25 +83,26 @@ export const ContactList: FC<IContactList> = ({ contacts, setquery }) => {
                 </Avatar>
                 <Stack>
                   <Typography title={contact.name} variant="h6" noWrap>{contact.name}</Typography>
-                  <Link href={`tel:${contact.number}`}></Link>
+                  <Link title="Mobile" href={`tel:${contact.number}`}></Link>
                   <Typography variant="body2">{contact.number}</Typography>
                 </Stack>
                 <Stack direction="row" spacing={1} alignItems="center">
-                  <IconButton>
+                  <IconButton title='call' >
                     <a
+                      aria-label="call"
                       style={{ color: "green" }}
                       href={`tel:${contact.number}`}
                     >
                       <CallIcon />
                     </a>
                   </IconButton>
-                  <IconButton
+                  <IconButton title='edit contact' aria-label="edit contact"
                     onClick={() => openUpdate(contact.id)}
                     sx={{ color: "blue" }}
                   >
                     <EditIcon />
                   </IconButton>
-                  <IconButton
+                  <IconButton title='delete contact' aria-label="delete contact"
                     onClick={() => dispatch(removeFromContact(contact.number))}
                     sx={{ color: "red" }}
                   >
